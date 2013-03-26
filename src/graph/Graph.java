@@ -1,6 +1,7 @@
 package graph;
 
 import graphdrawing.EadesSpringDrawer;
+import graphdrawing.FruchtermanReingoldDrawer;
 
 import java.util.Vector;
 import java.util.Iterator;
@@ -31,6 +32,7 @@ public class Graph
   private Color bgColor;
 
   private EadesSpringDrawer graphDrawer;
+//  private FruchtermanReingoldDrawer graphDrawer;
 
   /**
    * Constructor for a new graph.
@@ -46,6 +48,7 @@ public class Graph
     this.bgColor = Color.WHITE;
 
     // Should this be parameterized?
+//    this.graphDrawer = new FruchtermanReingoldDrawer(this);
     this.graphDrawer = new EadesSpringDrawer(this);
 
     // Delete this, or send to a logger...
@@ -134,6 +137,16 @@ public class Graph
   {
     this.graphDrawer.updateGraph();
     return this.graphDrawer.isStable();    
+  }
+
+  public int getCanvasWidth()
+  {
+    return parent.getWidth();
+  }
+
+  public int getCanvasHeight()
+  {
+    return parent.getHeight();
   }
 
   /**

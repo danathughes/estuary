@@ -36,7 +36,7 @@ public class GraphGUI {
       graph.addNode(n);
     }
     // And add about 20 edges
-    for(int i = 0; i < 20; i++)
+    for(int i = 0; i < 40; i++)
     {
       Node n1 = graph.getRandomNode();
       Node n2 = graph.getRandomNode();   
