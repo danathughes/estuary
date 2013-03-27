@@ -2,6 +2,7 @@ package graph;
 
 import graphdrawing.EadesSpringDrawer;
 import graphdrawing.FruchtermanReingoldDrawer;
+import graphdrawing.BarycenterDrawer;
 
 import java.util.Vector;
 import java.util.Iterator;
@@ -31,8 +32,9 @@ public class Graph
 
   private Color bgColor;
 
-  private EadesSpringDrawer graphDrawer;
+//  private EadesSpringDrawer graphDrawer;
 //  private FruchtermanReingoldDrawer graphDrawer;
+  private BarycenterDrawer graphDrawer;
 
   /**
    * Constructor for a new graph.
@@ -49,7 +51,8 @@ public class Graph
 
     // Should this be parameterized?
 //    this.graphDrawer = new FruchtermanReingoldDrawer(this);
-    this.graphDrawer = new EadesSpringDrawer(this);
+//    this.graphDrawer = new EadesSpringDrawer(this);
+    this.graphDrawer = new BarycenterDrawer(this);
 
     // Delete this, or send to a logger...
     System.out.println("My panel is: " + parent);
@@ -125,6 +128,15 @@ public class Graph
       index = random.nextInt(this.nodes.size());
       return this.nodes.get(index);
     }
+  }
+
+  /**
+   * Initialize the graph.  Currently justs forwards to the graphDrawer, so it
+   * can initialize what it needs to before being asked to draw something.
+   */
+  public void initialize()
+  {
+    this.graphDrawer.initialize();
   }
 
   /**

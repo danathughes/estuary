@@ -45,6 +45,7 @@ public class GraphGUI {
     }
 
     display.setVisible(true);
+    graph.initialize();
 
     while(!graph.updateGraph()) 
     {
